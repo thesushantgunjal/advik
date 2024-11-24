@@ -1,0 +1,48 @@
+<%-include("navbar.ejs") %>
+<form action="/admin/update_popular_course" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+        
+        <!-- Hidden field for Course ID -->
+        <input type="hidden" name="popular_course_id" value="<%- popular_courses.popular_course_id %>">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Edit Popular Course</h3>
+            </div>
+        </div>
+
+        <!-- Course Photo -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="popular_courses_photo">Course Photo</label>
+                <input type="file" name="popular_courses_photo" id="popular_courses_photo" class="form-control" accept="image/*">
+            </div>
+            <div class="col-md-6 mt-4">
+                <!-- Display current photo -->
+                <img src="/uploads/<%- popular_courses.popular_courses_photo %>" width="150px" height="auto" class="rounded shadow" alt="Current Course Photo">
+            </div>
+        </div>
+
+        <!-- Course Text -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="popular_courses_text">Course Title/Text</label>
+                <input type="text" name="popular_courses_text" id="popular_courses_text" class="form-control" value="<%-popular_courses.popular_courses_text %>">
+            </div>
+        </div>
+
+        <!-- Course Information -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="popular_courses_information">Course Information</label>
+                <textarea name="popular_courses_information" id="popular_courses_information" class="form-control" rows="2"><%-popular_courses.popular_courses_information %></textarea>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Update Course</button>
+        </div>
+    </div>
+</form>
+<%-include("footer.ejs") %>

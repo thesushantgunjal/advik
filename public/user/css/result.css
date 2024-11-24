@@ -1,0 +1,248 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   }
+   
+   .nav-link_Results{
+       font-size: 1.rem; /* Custom font size */
+       background-color: #007bff; /* Background color */
+       color: white; /* Text color */
+       border-radius: 5px; /* Rounded corners */
+       margin: 5px; /* Space between buttons */
+   }
+   
+   .nav-link_Results:hover {
+       background-color: #0056b3; /* Darker shade on hover */
+   }
+   
+   .nav-tabs {
+       justify-content: center; /* Center tabs */
+   }
+   
+   .slide-img-section{
+    background-image: url("https://saraswaticlasses.com/img/inner_banner/result.jpg");
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 350px;
+    /* opacity: 0.9;   */
+}
+   
+   
+   
+   /* Topper Student */
+   
+   .topper-img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    margin-top: 80px ;
+    margin-left: 10px ;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgb(166, 207, 255);
+   }
+   
+   .badge-circle {
+    height:auto;
+    /* margin-left:30px; */
+    width:22%;
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    
+    background-color: #fdd805;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    font-weight:10px;
+   }
+   @media (max-width: 590px) {
+       .badge-circle {
+         top: 10px;
+         right: 15px;
+         padding: 8px;
+         font-size: 0.8rem;
+       }
+     }
+   
+     @media (max-width: 590px) {
+       .badge-circle {
+         top: 15px;
+         right: 30px;
+         padding: 9px;
+         font-size: 0.9rem;
+   
+       }
+     }
+   
+   @media (max-width: 576px) {
+   
+    /* Mobile view */
+    .topper-img {
+     height: 140px;
+    }
+   
+    .nav-link_Results{
+     font-size: 14px;
+    }
+   
+    .badge-circle {
+     top: 40px;
+     margin-left: -30px;
+     border-radius:50%;
+    }
+   }
+   
+   @media (min-width: 768px) and (max-width: 991px) {
+   
+    /* Tablet view */
+    .topper-img {
+     height: 140px;
+    }
+   /* 
+    .badge-circle {
+     top: 0px;
+     right: -30px;
+    } */
+   }
+   
+   @media (min-width: 1200px) {
+   
+    /* Larger desktops */
+    .topper-img {
+     height: 220px;
+    }
+   }
+   
+   
+   /* student-ranking */
+   .student-ranking {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   }
+   
+   .student-ranking .box-1 {
+    width: 300px;
+    height: 130px;
+    border: 2px solid rgb(207, 207, 255);
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background-color: rgb(252, 254, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 10px;
+   }
+   
+   .student-ranking .box-1 h4 {
+    font-weight: bold;
+   }
+   
+   .student-ranking .box-1 p {
+    color: rgb(175, 2, 138);
+    font-weight: bold;
+   }
+   
+   
+   
+   @media only screen and (max-width: 600px) {
+    #slide-img-section {
+     height: 100px;
+    }
+   
+    .student-ranking {
+     display: flex;
+     flex-direction: column;
+    }
+   
+    .student-ranking .box-1 {
+     width: 100%;
+     margin: 0;
+     margin-bottom: 10px;
+    }
+   }
+   
+   /* subject-toppers */
+   .subject-toppers {
+    background: linear-gradient(rgba(181, 231, 231, 0.3), rgba(137, 137, 222, 0.7)), url(result.jpg);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+   }
+   
+   
+   .subject-toppers .box-2 {
+    width: 200px;
+    background-color: #f8f9fa;
+    transition: transform 0.2s;
+   }
+   
+   .subject-toppers .box-2:hover {
+    transform: scale(1.05);
+    background-color: #e3f2fd;
+   }
+   
+   .subject-toppers h3 {
+    color: rgb(175, 2, 138);
+    font-size: 22px;
+   }
+   
+   .subject-toppers h5 {
+    color: black;
+   }
+   .topper-img {
+       width: 200px;
+       height: 200px;
+       object-fit: cover;
+       border-radius: 50%;
+       margin-bottom: 10px;
+       position: relative;
+     }
+   
+   
+   
+   
+   /* media query */
+   
+   
+   
+   @media only screen and (max-width: 600px) {
+    #slide-img-section {
+     height: 100px;
+    }
+   
+    .student-ranking {
+     display: flex;
+     flex-direction: column;
+    }
+   
+    .student-ranking .box-1 {
+     width: 100%;
+     margin: 0;
+     margin-bottom: 10px;
+    }
+   }
+
+   
+.result_Opacity h2{
+  text-align: center;
+  margin-top: 120px;
+  font-size: 60px;
+  color: rgb(255, 255, 255);
+  font-family: 'Times New Roman', Times, serif;
+}
+.result_Opacity p{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  font-family: 'Times New Roman', Times, serif;
+}

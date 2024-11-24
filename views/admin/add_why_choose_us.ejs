@@ -1,0 +1,55 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/save_why_choose_us" method="post" class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+        <input type="hidden" name="why_choose_us_id" value="<%-why_choose_us.why_choose_us_id%>">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Why Choose Us</h3>
+            </div>
+        </div>
+
+        <!-- Knowledge Section -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="knowledge_heading">Knowledge Heading</label>
+                <input type="text" name="knowledge_heading" id="knowledge_heading" class="form-control" value="<%- why_choose_us.knowledge_heading %>">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label for="knowledge_information_text">Knowledge Information</label>
+                <textarea name="knowledge_information_text" id="knowledge_information_text" class="form-control" rows="2"><%- why_choose_us.knowledge_information_text %></textarea>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="experience_heading">Experience Heading</label>
+                <input type="text" name="experience_heading" id="experience_heading" class="form-control" value="<%- why_choose_us.experience_heading %>">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label for="experience_information_text">Experience Information</label>
+                <textarea name="experience_information_text" id="experience_information_text" class="form-control" rows="2"><%- why_choose_us.experience_information_text %></textarea>
+            </div>
+        </div>
+
+        <!-- Environment Section -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="environment_heading">Environment Heading</label>
+                <input type="text" name="environment_heading" id="environment_heading" class="form-control" value="<%- why_choose_us.environment_heading %>">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label for="environment_information_text">Environment Information</label>
+                <textarea name="environment_information_text" id="environment_information_text" class="form-control" rows="2"><%- why_choose_us.environment_information_text %></textarea>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
+
+<%-include("footer.ejs")%>

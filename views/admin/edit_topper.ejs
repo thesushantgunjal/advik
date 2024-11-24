@@ -1,0 +1,60 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/update_topper" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+        <div class="row">
+        <!-- Hidden field for Topper ID -->
+        <input type="hidden" name="topper_id" value="<%-toppers.topper_id %>">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Update Topper Student Details</h3>
+            </div>
+        </div>
+
+        <!-- Topper Photo -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="topper_photo">Topper Student Photo</label>
+                <input type="file" name="topper_photo" id="topper_photo" class="form-control" accept="image/*">
+            </div>
+            <div class="col-md-6 ml-4 text-center">
+                <!-- Display current photo -->
+                <img src="/uploads/<%- toppers.topper_photo %>" width="100px" height="100px" class="rounded shadow" alt="Current Topper Photo">
+            </div>
+        </div>
+
+        <!-- Topper Name -->
+            <div class="col-md-6">
+                <label for="topper_name">Topper Student Name</label>
+                <input type="text" name="topper_name" id="topper_name" class="form-control" value="<%- toppers.topper_name %>">
+            </div>
+
+        <!-- Topper Subject -->
+            <div class="col-md-6">
+                <label for="topper_subject">Topper Student Subject</label>
+                <input type="text" name="topper_subject" id="topper_subject" class="form-control" value="<%- toppers.topper_subject %>">
+            </div>
+
+        <!-- Topper Percentage -->
+            <div class="col-md-6">
+                <label for="topper_percentage">Topper Student Percentage</label>
+                <input type="number" step="0.01" name="topper_percentage" id="topper_percentage" class="form-control" value="<%- toppers.topper_percentage %>">
+            </div>
+
+        <!-- Topper Contact Number -->
+            <div class="col-md-6">
+                <label for="topper_number">Topper Student Number</label>
+                <input type="tel" name="topper_number" id="topper_number" class="form-control" value="<%- toppers.topper_number %>">
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-12 mt-5 text-center">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+        </div>
+    </div>
+</form>
+
+
+<%-include("footer.ejs")%>

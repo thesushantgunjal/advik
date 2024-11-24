@@ -1,0 +1,35 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/save_Our_mission_&_vision" method="post"  class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+        <input type="hidden" name="Our_mission_visions_id" value="<%-our_mission_visions.Our_mission_visions_id%>">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Our Mission & Our Vision</h3>
+            </div>
+        </div>
+        <!-- Our Mission Text-->
+        <div class="col-md-12 mb-3">
+            <label for="Our_mission_text">Our Mission Text</label>
+            <textarea name="Our_mission_text" id="Our_mission_text" class="form-control" rows="3"><%-our_mission_visions.Our_mission_text%></textarea>
+        </div>
+        <!-- Our Vision Text -->
+        <div class="col-md-12 mb-3">
+            <label for="our_vision_text">Our Vision Text</label>
+            <textarea name="our_vision_text" id="our_vision_text" class="form-control" rows="3"><%-our_mission_visions.our_vision_text%></textarea>
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
+<%-include("footer.ejs")%>
+
+<!--
+CREATE TABLE Our_mission_visions (
+    Our_mission_visions_id INT AUTO_INCREMENT PRIMARY KEY,
+    Our_mission_text TEXT NOT NULL,
+    our_vision_text TEXT NOT NULL
+);
+
+-->

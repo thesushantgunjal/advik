@@ -1,0 +1,99 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/save_slider" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Manage Slider</h3>
+            </div>
+            <!-- Slider Heading -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_heading">Slider Heading</label>
+                <input type="text" name="slider_heading" id="slider_heading" class="form-control" required>
+            </div>
+             <!-- Button Text -->
+             <div class="col-md-6 mb-3">
+                <label for="button_text">Button Text</label>
+                <input type="text" name="button_text" id="button_text" class="form-control">
+            </div>
+            <!-- Slider Heading Img Text -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_heading_text">Slider Heading Img Text</label>
+                <input type="text" name="slider_heading_text" id="slider_heading_text" class="form-control">
+            </div>
+            <!-- Slider Image 1 -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_image_1">Slider Image 1</label>
+                <input type="file" name="slider_image_1" id="slider_image_1" class="form-control" required>
+            </div>
+            <!-- Slider Image 2 -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_image_2">Slider Image 2</label>
+                <input type="file" name="slider_image_2" id="slider_image_2" class="form-control">
+            </div>
+            <!-- Slider Image 3 -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_image_3">Slider Image 3</label>
+                <input type="file" name="slider_image_3" id="slider_image_3" class="form-control">
+            </div>
+           
+            <!-- Slider Text -->
+            <div class="col-md-12 mb-3">
+                <label for="slider_text">Slider Text</label>
+                <textarea name="slider_text" id="slider_text" class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary">Save Slider</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid mt-5 mb-5 p-3 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="heading">Slider List</h3>
+        </div>
+        <div class="col-md-12">
+           <!-- Added table-responsive for horizontal scrolling on small devices -->
+           <div class="table-responsive">
+               <table class="table table-bordered border-info">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>SN</th>
+                            <th>Slider Heading</th>
+                            <th>Button Text</th>
+                            <th>Slider Text</th>
+                            <th>Slider Heading Img Text</th>
+                            <th>Slider Image 1</th>
+                            <th>Slider Image 2</th>
+                            <th>Slider Image 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% sr = 1; for (i of sliders) { %>
+                        <tr>
+                            <td style="font-size: 20px;">
+                                <a href="/admin/edit_slider/<%= i.id %>" class="bi bi-pencil-square text-success"></a>
+                                <a href="/admin/delete_slider/<%= i.id %>" class="bi bi-trash3-fill text-danger"></a>
+                            </td>
+                            <td><%= sr++ %></td>
+                            <td><%= i.slider_heading %></td>
+                            <td><%= i.button_text %></td>
+                            <td><%= i.slider_text %></td>
+                            <td><%= i.slider_heading_text %></td>
+                            <td><img src="/uploads/<%= i.slider_image_1 %>" class="img-fluid" width="100px"></td>
+                            <td><img src="/uploads/<%= i.slider_image_2 %>" class="img-fluid" width="100px"></td>
+                            <td><img src="/uploads/<%= i.slider_image_3 %>" class="img-fluid" width="100px"></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+               </table>
+           </div>
+        </div>
+    </div>
+</div>
+
+<%- include("footer.ejs")%>

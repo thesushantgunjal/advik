@@ -1,0 +1,62 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/save_faq" method="post"  class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">FAQ</h3>
+            </div>
+        </div>
+        <!-- Questions Text-->
+        <div class="col-md-12 mb-3">
+            <label for="faq_question_text">Questions Text</label>
+            <textarea name="faq_question_text" id="faq_question_text" class="form-control" rows="3"></textarea>
+        </div>
+        <!-- Answer Text -->
+        <div class="col-md-12 mb-3">
+            <label for="faq_answer_text">Answer Text</label>
+            <textarea name="faq_answer_text" id="faq_answer_text" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
+<div class="container-fluid mt-5 mb-5 bg-white p-3">
+    <div class="row">
+        <div class="col-md-12 mt-4">
+            <h3 class="heading">FAQ List</h3>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <!-- Added table-responsive for horizontal scrolling on small screens -->
+        <div class="table-responsive">
+            <table class="table table-bordered border-info">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>SN</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% sr = 1; for (i of faqs) { %>
+                    <tr>
+                        <td style="font-size: 20px;">
+                            <a href="/admin/edit_faq/<%= i.faq_id %>" class="bi bi-pencil-square text-success"></a>
+                            <a href="/admin/delete_faq/<%= i.faq_id %>" class="bi bi-trash3-fill text-danger"></a>
+                        </td>
+                        <td><%= sr++ %></td>
+                        <td><%= i.faq_question_text %></td>
+                        <td><%= i.faq_answer_text %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%-include("footer.ejs")%>

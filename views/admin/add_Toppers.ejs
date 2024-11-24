@@ -1,0 +1,100 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/save_topper" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Topper Student Details</h3>
+            </div>
+        </div>
+
+        <!-- Topper Photo -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="topper_photo">Topper Student Photo</label>
+                <input type="file" name="topper_photo" id="topper_photo" class="form-control" accept="image/*">
+            </div>
+            
+        </div>
+
+        <!-- Topper Name -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="topper_name">Topper Student Name</label>
+                <input type="text" name="topper_name" id="topper_name" class="form-control">
+            </div>
+        </div>
+
+        <!-- Topper Subject -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="topper_subject">Topper Student Subject</label>
+                <input type="text" name="topper_subject" id="topper_subject" class="form-control">
+            </div>
+        </div>
+
+        <!-- Topper Percentage -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="topper_percentage">Topper Student Percentage</label>
+                <input type="number" step="0.01" name="topper_percentage" id="topper_percentage" class="form-control">
+            </div>
+        </div>
+
+        <!-- Topper Number -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="topper_number">Topper Student Number</label>
+                <input type="tel" name="topper_number" id="topper_number" class="form-control">
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form><div class="container-fluid bg-white p-3 shadow-lg mb-5 bg-body rounded">
+    <div class="row">
+        <div class="col-md-12 mt-4">
+            <h3 class="heading">Topper List</h3>
+        </div>
+    </div>
+
+    <!-- Add table-responsive for responsive scrolling -->
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered border-info">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Topper Photo</th>
+                    <th>Topper Name</th>
+                    <th>Topper Subject</th>
+                    <th>Topper Percentage</th>
+                    <th>Topper Contact Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% sr = 1; for (i of toppers) { %>
+                <tr>
+                    <td style="font-size: 20px;">
+                        <a href="/admin/edit_topper/<%= i.topper_id %>" class="bi bi-pencil-square text-success"></a>
+                        <a href="/admin/delete_topper/<%= i.topper_id %>" class="bi bi-trash3-fill text-danger"></a>
+                    </td>
+                    <td><%= sr++ %></td>
+                    <td>
+                        <img src="/uploads/<%- i.topper_photo %>" width="50px" height="50px" class="rounded shadow img-fluid">
+                    </td>
+                    <td><%- i.topper_name %></td>
+                    <td><%- i.topper_subject %></td>
+                    <td><%- i.topper_percentage %> %</td>
+                    <td><%- i.topper_number %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%-include("footer.ejs")%>

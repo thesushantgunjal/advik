@@ -1,0 +1,128 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/result_page" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Result Form</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="options">Category Name</label>
+                    <select class="form-control" id="options" name="result_category_id">
+                        
+                       <% for(i of result_data){%>
+                           
+                           <option name="result_category_id" value="<%-i.result_category_id%>"><%-i.category_name%></option>
+                           
+                           
+                           <% } %>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Input for new category name -->
+            <div class="col-md-6 mb-3">
+                <label for="category_name">gallry img</label>
+                <input type="file" id="gallery_img" name="result_img" class="form-control">
+            </div>
+           
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Student Name </label>
+                <input type="text" id="category_name" name="student_name" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name"> parentage </label>
+                <input type="text"  name="student_parentage" class="form-control">
+            </div>
+           
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid mt-5 mb-5 p-3 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="heading">Result Form List</h3>
+        </div>
+        <div class="col-md-12">
+           <table class="table table-bordered border-info">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>SN</th>
+                            <th>Category id</th>
+                            <th>student image</th>
+                            <th>student_name</th>
+                            <th>student_parentage</th>
+
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% sr=1; for(i of old_data){%> 
+                        <tr>
+                            <td style="white-space: nowrap;">
+                                <a href="/admin/update_result_edit/<%-i.result_id%>">
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/result_delete/<%-i.result_id%>" onclick="return confirmDelete()" >
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                            </a>
+                            </td>
+
+                            <td><%-sr++%></td>
+
+                            
+                           
+                            <td><%-i.result_category_id%></td>
+                                
+                                
+                               
+                            <td><img src="/uploads/<%-i.result_img%>" alt="" width="100px" height="ms-auto"></td>
+                            <td><%-i.student_name%></td>
+                            <td><%-i.student_parentage%></td>
+                            
+                           
+                        </tr>
+                        
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this item?');
+    }
+</script>
+
+<%-include("footer.ejs")%>
+
+
+
+<!--
+CREATE TABLE result (
+    result_id INT PRIMARY KEY AUTO_INCREMENT,
+    result_category_id INT,
+    result_img VARCHAR(255),
+    student_name VARCHAR(255) NOT NULL,
+    student_parentage VARCHAR(100),
+    
+);
+
+
+
+-->

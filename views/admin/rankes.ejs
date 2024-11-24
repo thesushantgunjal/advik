@@ -1,0 +1,78 @@
+<%-include("navbar.ejs")%>
+
+<form action="/admin/student_achievment" method="post" >
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+           
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Student Achievements</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+           
+            
+            <!-- Input for new category name -->
+    <!--
+             var sql = `INSERT INTO student_achievements (parentage_1, number_of_students_1, parentage_2, number_of_students_2, parentage_3, number_of_students_3) VALUES 
+    ('${d.parentage_1}', '${d.Number_of_Students_1}', '${d.p_2}', '${d.Number_of_Students_2}', '${d.parentage_3}', '${d.Number_3}')`;
+
+    -->
+            
+           
+            <div class="col-md-6 mb-3">
+                <label for="category_name">parentage_1  </label>
+                <input type="hidden" name="achievment_id"  value="<%-old_data.student_achievements_id%>">
+                <input type="text" value="<%-old_data.parentage_1%>" id="category_name" name="parentage_1" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name"> Number of Students_1</label>
+                <input type="text" value="<%-old_data.number_of_students_1%>"  name="Number_of_Students_1" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name">parentage_2  </label>
+                <input type="text" value="<%-old_data.parentage_2%>" id="category_name_2" name="p_2" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name"> Number of Students_2</label>
+                <input type="text" value="<%-old_data.number_of_students_2%>"  name="Number_of_Students_2" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name">parentage_3  </label>
+                <input type="text" value="<%-old_data.parentage_3%>" id="category_name" name="parentage_3" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name"> Number of Students_3</label>
+                <input type="text" value="<%-old_data.number_of_students_3%>" name="Number_3" class="form-control">
+            </div>
+           
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--
+CREATE TABLE student_achievements (
+    student_achievements_id INT AUTO_INCREMENT PRIMARY KEY,
+    parentage_1 VARCHAR(10) ,
+    number_of_students_1 INT ,
+    parentage_2 VARCHAR(10) ,
+    number_of_students_2 INT ,
+    parentage_3 VARCHAR(10) ,
+    number_of_students_3 INT 
+);
+
+
+-->
+<%-include("footer.ejs")%>

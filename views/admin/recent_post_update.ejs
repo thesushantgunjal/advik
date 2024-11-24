@@ -1,0 +1,45 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/recent_post_update" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Recent Posts Update</h3>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Dropdown selection for category -->
+           
+            
+            <!-- Input for new category name -->
+            <div class="col-md-6 mb-3">
+                <label for="category_name">blog img</label>
+                <input type="hidden" name="recent_post_id" id="" value="<%-recent_post_data.recent_post_blog_id%>">
+               
+                <input type="file" id="gallery_img" name="blog_img" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <img src="/uploads/<%-recent_post_data.blog_img%>"
+                                alt="" width="100px" height="ms-auto"  >
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="category_name">blog titale</label>
+               
+                <input type="text" value="<%-recent_post_data.blog_title%>" id="gallery_img" name="blog_titale" class="form-control">
+                </div>
+            </div>
+           
+           
+           
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+<%-include("footer.ejs")%>

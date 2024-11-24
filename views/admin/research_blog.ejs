@@ -1,0 +1,69 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/research_blog" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Create New Blog Post</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+           
+            
+            <!-- Input for new category name -->
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Main Image</label>
+            <input type="hidden" name="research_blog_id" value="<%-old_data.research_blog_id%>">
+                <input type="file" name="research_blog_img" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <img src="/uploads/<%-old_data.research_blog_img%>" alt="" width="100px" height="100px">
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Title</label>
+            
+                <input type="text" value="<%-old_data.research_blog_title%>" name="research_blog_title" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Subtitle</label>
+            
+                <input type="text" value="<%-old_data. research_blog_subtitle%>" name="research_blog_subtitale" class="form-control">
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="category_name">Content</label>
+                
+               
+                <textarea name="research_blog_content" id="aboutText1" class="form-control" rows="2" placeholder="Enter first section of about text"><%-old_data.research_blog_content%></textarea>
+
+            </div>
+              
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--
+CREATE TABLE research_blog (
+    research_blog_id INT AUTO_INCREMENT PRIMARY KEY,
+    research_blog_img VARCHAR(255) NOT NULL, 
+    research_blog_title VARCHAR(255) NOT NULL, 
+    research_blog_subtitle VARCHAR(255), 
+    research_blog_content TEXT
+    
+);
+
+
+-->
+
+<%-include("footer.ejs")%>

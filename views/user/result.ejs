@@ -1,0 +1,111 @@
+<%-include("navbar.ejs")%>
+<section class="blog_bread" style="background-image: url('https://saraswaticlasses.com/img/inner_banner/result.jpg')">
+  <div class="container py-5 topbar">
+      <div class="row py-5" data-aos="fade-up" data-aos-duration="1000">
+          <h1 class="text-white text-center">Student Results</h1>
+          <nav class="breadnav" aria-label="breadcrumb">
+              <ol class="breadcrumb  justify-content-center">
+                  <li class="breadcrumb-item fs-5">
+                      <a class="text-decoration-none text-white" href="/">Home</a>
+                  </li>
+                  <li class="breadcrumb-item fs-5 active text-info" aria-current="page">
+                    Results
+                  </li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</section>
+
+  
+  <!-- topperstudent list -->
+
+  <div class="container mt-5">
+    <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+
+      <% for(i of result_categary_data){%> 
+
+      <li class="nav-item" role="presentation">
+        <a href="/result?result_category_id=<%-i.result_category_id%>">
+          <button class="nav-link nav-link_Results active border border-1 border-info" id="Abacus-tab" data-bs-toggle="tab" data-bs-target="#Abacus" type="button" role="tab" aria-controls="Abacus" aria-selected="true"><%-i.category_name%></button><br>
+        </a>
+      </li>
+      <% } %>
+  </ul>
+
+
+  
+
+    <div class="tab-content" id="myTabContent">
+
+      <!-- Abacus -->
+      <div class="tab-pane fade show active" id="Abacus" role="tabpanel" aria-labelledby="Abacus-tab">
+  <div class="row text-center m-3">
+    <!-- Topper 1 -->
+    <% for(i of result_data){%> 
+    <div class="col-md-3 col-12 mb-4">
+      <div class="position-relative">
+        <img src="/uploads/<%-i.result_img%>" alt="Toppers" class="img-fluid rounded-circle topper-img">
+        <div class="badge-circle bg-primary text-white"><%-i.student_parentage%>%</div>
+      </div>
+      <h5 class="mt-4"><%-i.student_name%></h5>
+    </div>
+    <% } %>
+  </div>
+ 
+</div>
+      
+    </div>
+    <section class=" student-ranking">
+      <div class="box-1">
+        <h4><%-student_achievements.parentage_1%></h4>
+        <p><%-student_achievements.number_of_students_1%> Students</p>
+      </div>
+
+      <div class="box-1">
+        <h4><%-student_achievements.parentage_2%></h4>
+        <p><%-student_achievements.number_of_students_2%> Students</p>
+      </div>
+
+      <div class="box-1">
+        <h4><%-student_achievements.parentage_3%></h4>
+        <p><%-student_achievements.number_of_students_3%></p>
+      </div>
+    </section>
+
+    <section class="m-3 text-primary">
+      <div class="text-center">
+        <h3>Subject Topper's</h3>
+      </div>
+      <div class="subject-toppers d-flex flex-wrap justify-content-center gap-3">
+        <div class="box-2 text-center p-3 border rounded">
+          <h3>Vediv Math</h3>
+          <h2><%-subject_topper.vediv_math%></h2>
+        </div>
+
+        <div class="box-2 text-center p-3 border rounded">
+          <h3>Abacus</h3>
+          <h2><%-subject_topper.abacus%></h2>
+        </div>
+
+        <div class="box-2 text-center p-3 border rounded">
+          <h3>Rubik's Cube</h3>
+          <h2><%-subject_topper.rubik_cube%></h2>
+        </div>
+
+        <div class="box-2 text-center p-3 border rounded">
+          <h3>Smart Write</h3>
+          <h2><%-subject_topper.smart_write%></h2>
+        </div>
+
+        <div class="box-2 text-center p-3 border rounded">
+          <h3>Grammar</h3>
+          <h2><%-subject_topper.grammar%></h2>
+        </div>
+
+
+
+      </div>
+    </section>
+    </div>
+<%-include("footer.ejs")%>

@@ -1,0 +1,55 @@
+<%-include("navbar.ejs") %>
+<form action="/admin/save_awesome_features" method="post" class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+        <input type="hidden" name="awesome_features_id" value="<%-awesome_features.awesome_features_id %>">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Awesome Features</h3>
+            </div>
+        </div>
+
+        <!-- Class Facility -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="class_facility">Class Facility Heading</label>
+                <input type="text" name="class_facility" id="class_facility" class="form-control" value="<%-awesome_features.class_facility %>" required>
+            </div>
+            <div class="col-md-12">
+                <label for="class_facility_text">Class Facility Description</label>
+                <textarea name="class_facility_text" id="class_facility_text" class="form-control" rows="2" required><%-awesome_features.class_facility_text %></textarea>
+            </div>
+        </div>
+
+        <!-- Dell Online Course -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="dell_online_course">Dell Online Course Heading</label>
+                <input type="text" name="dell_online_course" id="dell_online_course" class="form-control" value="<%-awesome_features.dell_online_course %>" required>
+            </div>
+            <div class="col-md-12">
+                <label for="dell_online_course_text">Dell Online Course Description</label>
+                <textarea name="dell_online_course_text" id="dell_online_course_text" class="form-control" rows="2" required><%-awesome_features.dell_online_course_text %></textarea>
+            </div>
+        </div>
+
+        <!-- Global Certification -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="global_certification">Global Certification Heading</label>
+                <input type="text" name="global_certification" id="global_certification" class="form-control" value="<%-awesome_features.global_certification %>" required>
+            </div>
+            <div class="col-md-12">
+                <label for="global_certification_text">Global Certification Description</label>
+                <textarea name="global_certification_text" id="global_certification_text" class="form-control" rows="2" required><%-awesome_features.global_certification_text %></textarea>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Save Features</button>
+        </div>
+    </div>
+</form>
+
+<%-include("footer.ejs") %>

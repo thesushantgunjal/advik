@@ -1,0 +1,49 @@
+<%- include("navbar.ejs")%>
+<form action="/admin/save_gallery_slider" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3">
+        <input type="hidden" name="gallery_slider_id" value="<%-gallery_sliders.gallery_slider_id%>">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Gallery Slider</h3>
+            </div>
+            <!-- Slider Image 1 -->
+            <div class="col-md-6 mt-4">
+                <label for="gallery_slider_image_1">Gallery Slider Image 1</label>
+                <input type="file" name="gallery_slider_image_1" id="gallery_slider_image_1" class="form-control">
+            </div>
+            <div class="col-md-6 mt-4">
+                <label></label>
+                <img src="/uploads/<%-gallery_sliders.gallery_slider_image_1%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+
+
+            <!-- Slider Image 2 -->
+            <div class="col-md-6 mt-4">
+                <label for="gallery_slider_image_2">Gallery Slider Image 2</label>
+                <input type="file" name="gallery_slider_image_2" id="gallery_slider_image_2" class="form-control">
+            </div>
+            <div class="col-md-6 mt-4">
+                <label></label>
+                <img src="/uploads/<%-gallery_sliders.gallery_slider_image_2%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+            <!-- Slider Image 3 -->
+            <div class="col-md-6 mt-4">
+                <label for="gallery_slider_image_3">Gallery Slider Image 3</label>
+                <input type="file" name="gallery_slider_image_3" id="gallery_slider_image_3" class="form-control">
+            </div>
+            <div class="col-md-6 mt-4">
+                <label></label>
+                <img src="/uploads/<%-gallery_sliders.gallery_slider_image_3%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+            <div class="col-md-12 mt-4 text-center">
+                <button type="submit" class="btn btn-primary">
+                    <span class="btn-txt">Submit</span>
+                  </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+ <%- include("footer.ejs")%>
+

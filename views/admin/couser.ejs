@@ -1,0 +1,137 @@
+<%-include("navbar.ejs")%>
+
+<form action="/admin/couser_page" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Course Form</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="options">Category Name</label>
+                    <select class="form-control" id="options" name="category_id">
+                        
+                        <option value="">Choose an option</option>
+                       
+                            <% for ( i of course_data) { %>
+                                
+                                <option name="category_id" value="<%- i.course_category_id %>"><%- i.category_name %></option>
+                            <% } %>
+                    
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Input for new category name -->
+            
+            
+            <div class="col-md-6 mb-3">
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="start_date">Start Date</label>
+                <input type="date" name="start_date" id="start_date" class="form-control" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="time">Time</label>
+                <input type="time" name="time" id="time" class="form-control" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="teacher_name">Teacher Name</label>
+                <input type="text" name="teacher_name" id="teacher_name" class="form-control" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="meeting_link">Meeting Link</label>
+                <input type="url" name="meeting_link" id="meeting_link" class="form-control" required>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="heading">Course Form List</h3>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>SN</th>
+                            <th>course_category_id</th>
+                            <th>subject</th>
+                            <th>Start Date</th>
+                            <th>time</th>
+                            <th>Teacher Name</th>
+                            <th>Meeting Link</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% sr=1; for(i of course2){%> 
+                        
+                        <tr>
+                            <td style="white-space: nowrap;">
+                                <a href="/admin/update_couse_edit/<%-i.course_id%>">
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/course_delete/<%-i.course_id%>"  onclick="return confirmDelete()" >
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                            </a>
+                            </td>
+                            
+                           <td><%-sr++%></td>
+                           <td><%-i.course_category_id%></td>
+                           <td><%-i.subject%></td>
+                           <td><%- new Date(i.start_date).toLocaleDateString('en-GB') %></td>
+                           <td><%-i.time%></td>
+                           <td><%-i.teacher_name%></td>
+                           <td><%-i.meeting_link%></td>
+                           
+                        </tr>
+                        <% } %>
+                
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this item?');
+    }
+</script>
+<!--
+CREATE TABLE courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_category_id INT,
+    subject VARCHAR(255) NOT NULL,
+    start_date DATE NOT NULL,
+    time TIME NOT NULL,
+    teacher_name VARCHAR(255) NOT NULL,
+    meeting_link VARCHAR(255)
+    onclick="return confirmDelete()"
+    
+);
+
+-->
+<%-include("footer.ejs")%>

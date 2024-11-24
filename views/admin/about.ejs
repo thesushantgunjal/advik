@@ -1,0 +1,58 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/submit-about" method="post" enctype="multipart/form-data">
+  <div class="container-fluid bg-white p-4">
+    <div class="row">
+      <!-- Form Heading -->
+      <div class="col-md-12 mt-4">
+        <h3 class="heading">About Us Form</h3>
+    </div>
+     
+
+      <!-- About Text 1 -->
+      <div class="mb-3 col-md-6">
+        <label for="aboutText1">About Text 1</label>
+        <input type="hidden" name="about_us_id" value="<%-old_data.about_us_id%>">
+        <textarea name="aboutText1" id="aboutText1" class="form-control" rows="2" placeholder="Enter first section of about text"><%-old_data.aboutText1%></textarea>
+      </div>
+
+      <!-- About Text 2 -->
+      <div class="mb-3 col-md-6">
+        <label for="aboutText2">About Text 2</label>
+        <textarea name="aboutText2" id="aboutText2" class="form-control" rows="2" placeholder="Enter second section of about text"><%-old_data.aboutText2%></textarea>
+      </div>
+
+      <!-- Upload Image -->
+      <div class="mb-3 col-md-6">
+        <label for="aboutImage">Upload Image</label>
+        <input type="file" name="aboutImage" id="aboutImage" class="form-control">
+      </div>
+
+      <!-- Image Preview -->
+      <div class="mb-3 col-md-6 text-center">
+        <label></label>
+        <img src="/uploads/<%-old_data.aboutImage%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+      </div>
+
+      <!-- Submit Button -->
+      <div class="col-12 mt-4 text-center">
+        <button type="submit" class="btn btn-primary btn-lg px-5 shadow">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+<!--
+CREATE TABLE about_us (
+    about_us_id INT AUTO_INCREMENT PRIMARY KEY,
+    aboutText1 TEXT NOT NULL,
+    aboutText2 TEXT NOT NULL,
+    aboutImage VARCHAR(300) NOT NULL,
+    
+);
+
+-->
+  
+
+<%-include("footer.ejs")%>

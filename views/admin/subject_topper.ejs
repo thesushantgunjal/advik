@@ -1,0 +1,74 @@
+<%-include("navbar.ejs")%>
+
+<form action="/admin/subject_topper" method="post" >
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Subject Topper's</h3>
+            </div>
+        </div>
+
+        <div class="row">
+           <!--
+             var sql=`INSERT INTO subject_topper(vediv_math, abacus,rubik_cube, smart_write, grammar) VALUES
+   ('${d.vediv_math}','${d.abacus}','${d.rubik_cube}','${d.smart_write}','${d.grammar}')`;
+
+           -->
+            
+           
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Vediv Math  </label>
+                <input type="hidden" name="topper_id"  value="<%-old_topper_data.subject_topper_id%>">
+                <input type="text" value="<%-old_topper_data.vediv_math%>"  id="category_name" name="vediv_math" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Abacus  </label>
+                
+                <input type="text" value="<%-old_topper_data.abacus%>" id="category_name" name="abacus" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Rubik's Cube  </label>
+                
+                <input type="text" value="<%-old_topper_data.rubik_cube%>" id="category_name" name="rubik_cube" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Smart Write </label>
+                
+                <input type="text" value="<%-old_topper_data.smart_write%>"  id="category_name" name="smart_write" class="form-control">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Grammar </label>
+                
+                <input type="text" value="<%-old_topper_data.grammar%>"  id="category_name" name="grammar" class="form-control">
+            </div>
+
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+            <!--
+            CREATE TABLE subject_topper (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    vediv_math VARCHAR(100),
+    abacus VARCHAR(100),
+    rubik_cube VARCHAR(100),
+    smart_write VARCHAR(100),
+    grammar VARCHAR(100)
+);
+            -->
+
+          
+
+         
+
+
+            
+           
+        
+    </div>
+</form>
+
+<%-include("footer.ejs")%>

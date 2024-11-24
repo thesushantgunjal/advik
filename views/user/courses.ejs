@@ -1,0 +1,341 @@
+<%-include("navbar.ejs")%>
+
+<section class="slide-img-courses" style="background-image: url('/uploads/Education.jpg');">
+  <div class="container py-5">
+      <div class="row py-5" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="text-white text-center">Courses</h1>
+          <nav class="breadnav" aria-label="breadcrumb">
+              <ol class="breadcrumb  justify-content-center">
+                  <li class="breadcrumb-item fs-5">
+                      <a class="text-decoration-none text-white" href="/">Home</a>
+                  </li>
+                  <li class="breadcrumb-item fs-5 active text-info" aria-current="page">
+                    Courses
+                  </li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</section>
+
+
+
+  <!-- features -->
+
+  <section id="features" data-aos="zoom-in-up" data-aos-duration="1500">
+    <h1>Awesome Features</h1>
+    <p>Replenish man have thing gathering lights yielding shall you</p>
+    <div class="fea-base">
+
+      <div class="fea-box" data-aos="flip-up" data-aos-duration="1500">
+        <i class="bi bi-mortarboard-fill"></i>
+        <h3><%-awesome_features.class_facility %></h3>
+        <p><%-awesome_features.class_facility_text %></p>
+      </div>
+
+      <div class="fea-box" data-aos="flip-up" data-aos-duration="1500">
+        <i class="bi bi-patch-check-fill"></i>
+        <h3><%-awesome_features.dell_online_course %></h3>
+        <p><%-awesome_features.dell_online_course_text %></p>
+      </div>
+
+
+      <div class="fea-box" data-aos="flip-up" data-aos-duration="1500">
+        <i class="bi bi-award-fill"></i>
+        <h3><%-awesome_features.global_certification %></h3>
+        <p><%-awesome_features.global_certification_text %></p>
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <!-- courses -->
+
+  <section id="course">
+    <h1 class="text-center mt-5">Our Popular Courses</h1>
+    <p class="text-center">Replenish man have thing gathering lights yielding shall you</p>
+
+
+    <div class="course-box">
+
+      <% for(i of popular_courses){ %>
+
+      <div class="courses" data-aos="flip-left" data-aos-duration="1500">
+        <img
+          src="/uploads/<%- i.popular_courses_photo %>"
+          alt="">
+        <div class="details mt-4">
+          <h3><%- i.popular_courses_text %></h3>
+          <h6><%- i.popular_courses_information %></h6>
+         
+        </div>
+       
+      </div>
+      <% } %>
+
+    </div>
+
+  </section>
+
+
+  <section class="container-fluid section-batch-schedule mt-4">
+
+    <h2 class="text-center text-dark">Check New Batches Schedule</h2>
+  
+    <div class="accordion" id="faqs">
+      <% for (let category of courses_data) { %>
+        <div class="accordion-item m-3">
+          
+          <!-- Accordion Header (Button) -->
+          <div class="accordion-header">
+            <button 
+            
+              class="accordion-button bg-white" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#category-<%- category.course_category_id %>" 
+              aria-expanded="true" 
+              aria-controls="category-<%- category.course_category_id %>">
+              
+              <a href="/courses?course_category_id=<%- category.course_category_id %>" class="text-decoration-none text-dark">
+                <h5><%- category.category_name %></h5>
+              </a>
+            </button>
+          </div>
+  
+          <!-- Accordion Collapse (Content) -->
+          <div 
+            class="accordion-collapse collapse" 
+            id="category-<%- category.course_category_id %>" 
+            data-bs-parent="#faqs">
+            
+            <div class="accordion-body" style="overflow-x: auto;">
+              <table class="table">
+                <thead>
+                  <tr class="bg-info">
+                    <th scope="col">Batch No</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Teacher Name</th>
+                    <th scope="col">Meeting Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% let sr = 1; %>
+                  <% 
+                    // Filter courses for the current category
+                    let filtered_courses = courses_data2.filter(course => course.course_category_id === category.course_category_id);
+                  %>
+                  <% if (filtered_courses.length > 0) { %>
+                    <% for (let course of filtered_courses) { %>
+                      <tr>
+                        <th scope="row"><%- sr++ %></th>
+                        <td><%- course.subject %></td>
+                        <td><%- new Date(course.start_date).toLocaleDateString('en-GB') %></td>
+                        
+                        <td><%- course.time %></td>
+                        <td><%- course.teacher_name %></td>
+                        <td><a href="<%- course.meeting_link %>" class="btn btn-outline-primary" target="_blank">Click here</a></td>
+                      </tr>
+                    <% } %>
+                  <% } else { %>
+                    <tr>
+                      <td colspan="6" class="text-center">No batches available for this category.</td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </section>
+  
+  
+  <section class="container-fluid section-batch-schedule mt-4">
+    <h2 class="text-center text-dark">Subject Syllabus</h2>
+    
+    <!-- Accordion for Level Categories -->
+    <div class="accordion" id="levelsAccordion">
+      <% for (let category of level_category_data) { %>
+        <div class="accordion-item m-3">
+          
+          <!-- Accordion Header (Button) -->
+          <div class="accordion-header">
+            <button 
+              class="accordion-button bg-white" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#level-category-<%- category.level_category_id %>"  Changed here 
+              aria-expanded="false"
+              aria-controls="level-category-<%- category.level_category_id %>">  <!-- Changed here -->
+              <a href="/courses?level_category_id=<%- category.level_category_id %>" class="text-decoration-none text-dark">
+                <h5><%- category.category_name %></h5>
+              </a>
+            </button>
+          </div>
+  
+          <!-- Accordion Collapse (Content) -->
+          <div 
+            class="accordion-collapse collapse" 
+            id="level-category-<%- category.level_category_id %>"  Changed here 
+            data-bs-parent="#levelsAccordion">
+            
+            <div class="accordion-body" style="overflow-x: auto;">
+              <table class="table">
+                <thead>
+                  <tr class="bg-info">
+                    <th scope="col">No level</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Information</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% let sr = 1; %>
+                  <% 
+                    // Filter the levels (courses) for the current category
+                    let filtered_levels = level_data.filter(level => level.level_category_id === category.level_category_id);
+                  %>
+                  <% if (filtered_levels.length > 0) { %>
+                    <% filtered_levels.forEach(function(level) { %>
+                      <tr>
+                        <th scope="row"><%- sr++ %></th>
+                        <td><%- level.age %></td> <!-- Assuming 'age' is part of the level data -->
+                        <td><%- level.level_information %></td> <!-- Assuming 'level_information' contains the course details -->
+                      </tr>
+                    <% }) %>
+                  <% } else { %>
+                    <tr>
+                      <td colspan="3" class="text-center">No batches available for this category.</td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+
+
+
+<!--   
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const coursesAccordion = document.getElementById("coursesAccordion");
+      const levelsAccordion = document.getElementById("levelsAccordion");
+  
+      coursesAccordion.addEventListener('show.bs.collapse', function () {
+        // Close other accordion when one is opened
+        const levelsCollapse = levelsAccordion.querySelectorAll('.accordion-collapse.show');
+        levelsCollapse.forEach(function (collapse) {
+          collapse.classList.remove('show');
+        });
+      });
+  
+      levelsAccordion.addEventListener('show.bs.collapse', function () {
+        // Close other accordion when one is opened
+        const coursesCollapse = coursesAccordion.querySelectorAll('.accordion-collapse.show');
+        coursesCollapse.forEach(function (collapse) {
+          collapse.classList.remove('show');
+        });
+      });
+    });
+  </script>
+
+  
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+var swiper = new Swiper(".mySwiper", {
+ spaceBetween: 30,
+ grabCursor: true,
+ loop: true,
+
+ pagination: {
+  el: ".swiper-pagination",
+  clickable: true,
+ },
+
+ navigation: {
+  nextEl: ".swiper-button-next",
+  prevEl: ".swiper-button-prev",
+ },
+
+
+ breakpoints: {
+  0: {
+   slidesPerView: 1
+  },
+  768: {
+   slidesPerView: 2
+  },
+  1024: {
+   slidesPerView: 3
+  }
+ }
+});var swiper = new Swiper(".mySwiper", {
+ spaceBetween: 30,
+ grabCursor: true,
+ loop: true,
+
+ pagination: {
+  el: ".swiper-pagination",
+  clickable: true,
+ },
+
+ navigation: {
+  nextEl: ".swiper-button-next",
+  prevEl: ".swiper-button-prev",
+ },
+
+
+ breakpoints: {
+  0: {
+   slidesPerView: 1
+  },
+  768: {
+   slidesPerView: 2
+  },
+  1024: {
+   slidesPerView: 3
+  }
+ }
+});var swiper = new Swiper(".mySwiper", {
+ spaceBetween: 30,
+ grabCursor: true,
+ loop: true,
+
+ pagination: {
+  el: ".swiper-pagination",
+  clickable: true,
+ },
+
+ navigation: {
+  nextEl: ".swiper-button-next",
+  prevEl: ".swiper-button-prev",
+ },
+
+
+ breakpoints: {
+  0: {
+   slidesPerView: 1
+  },
+  768: {
+   slidesPerView: 2
+  },
+  1024: {
+   slidesPerView: 3
+  }
+ }
+});
+  </script> -->
+
+<%-include("footer.ejs")%>

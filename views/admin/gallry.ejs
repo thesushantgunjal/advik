@@ -1,0 +1,128 @@
+<%-include("navbar.ejs")%>
+
+<form action="/admin/gallery_page" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Gallery Form</h3>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="options">Category Name</label>
+                    <select class="form-control" id="options" name="category_id">
+                        <option value="">Choose an option</option>
+                       
+                            <% for ( i of old_data) { %>
+                                <option name="category_id" value="<%- i.category_id %>"><%- i.category_name %></option>
+                            <% } %>
+                    
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Input for new category name -->
+            <div class="col-md-6 mb-3">
+                <label for="category_name">gallry img</label>
+                <input type="file" id="gallery_img" name="gallery_img" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="category_name">gallry video</label>
+                <input type="url" id="category_name" name="gallry_video" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="category_name">gallry text</label>
+                <input type="text" id="category_name" name="gallry_text" class="form-control">
+            </div>
+            <div class="col-md-12 mb-3">
+                
+                    <label for="aboutText1">gallry text2</label>
+                    
+                    <textarea name="aboutText2" id="aboutText1" class="form-control" rows="2" placeholder="Enter first section of about text"></textarea>
+                 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid mt-5 mb-5 p-3 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="heading">Gallery Form List</h3>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <!-- Added table-responsive for horizontal scrolling on small screens -->
+        <div class="table-responsive">
+            <table class="table table-bordered border-info">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>SN</th>
+                        <th>Gallery Image</th>
+                        <th>Gallery Video Link</th>
+                        <th>Gallery Text</th>
+                        <th>Gallery Text 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% sr = 1; for (i of gallry_data) { %>
+                    <tr>
+                        <td style="white-space: nowrap;">
+                            <!-- Action buttons with better spacing and responsiveness -->
+                            <a href="/admin/update_gallry_edit/<%- i.gallery_id %>">
+                                <button class="btn btn-primary btn-sm m-1">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </a>
+                            <a href="/admin/update_gallry_delete/<%- i.gallery_id %>" onclick="return confirmDelete()">
+                                <button class="btn btn-danger btn-sm m-1">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </a>
+                        </td>
+                        <td><%- sr++ %></td>
+                        <!-- Added img-fluid class to make the images responsive -->
+                        <td><img src="/uploads/<%- i.gallery_img %>" alt="" class="img-fluid" width="100px"></td>
+                        <td><%- i.gallery_video %></td>
+                        <td><%- i.gallery_text %></td>
+                        <td><%- i.gallery_text2 %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript function for delete confirmation
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this gallery item?');
+    }
+</script>
+
+<!--
+CREATE TABLE gallery (
+    gallery_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_id INT 
+    gallery_img VARCHAR(255),          
+    gallery_video VARCHAR(255),        
+    gallery_text TEXT,                 
+    gallery_text2 TEXT,                
+    
+);
+
+-->
+
+    <%-include("footer.ejs")%>

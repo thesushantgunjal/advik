@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title> Admin Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- Favicons -->
+  <link href="/admin/img/rental_car_logo.png" rel="icon">
+  <link href="/admin/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/admin/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/admin/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="/admin/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="/admin/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/admin/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/admin/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="#" class="logo d-flex align-items-center">
+        <span class="d-none d-lg-block">Dashboard</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="/admin/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Kiran Tupe</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Kiran Tupe</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/admin/admin_profile">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/admin">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header>
+  <!-- End Header -->
+
+  
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#homepage" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-house-door"></i><span>Home Page</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="homepage" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/admin/slider">
+              <i class="bi bi-pencil-square fs-6"></i><span>Update Slider</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/add_why_choose_us">
+              <i class="bi bi-plus-square-fill fs-6"></i><span>Add Why Choose Us</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/counts">
+              <i class="bi bi-person-add fs-5"></i><span>Add Counts</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/add_Toppers">
+              <i class="bi bi-people-fill fs-6"></i><span>Add Topper's</span>
+            </a>
+          </li>
+          
+          
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#blogpage" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-house-check-fill"></i><span>About Us</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="blogpage" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/admin/about_home">
+              <i class="bi bi-file-post fs-6"></i>
+              <span>Add about</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/add_Our_mission_&_vision">
+              <i class="bi bi-plus-square fs-6"></i><span>Add Our Mission & Our Vision</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/add_about_founder">
+              <i class="bi bi-person-circle fs-5"></i><span>Add About Founder</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/add_faq">
+              <i class="bi bi-question-octagon-fill fs-5"></i></i><span>Add FAQ</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/add_testimonials">
+              <i class="bi bi-gem fs-6"></i><span>Add Testimonials</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#courses" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-house-add-fill"></i><span>Courses Page</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="courses" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/admin/awesome_features">
+              <i class="bi bi-pencil-square fs-6"></i><span>Awesome Features</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/popular_courses">
+              <i class="bi bi-pencil-square fs-6"></i><span>Popular Courses</span>
+            </a>
+          </li>
+          
+          <li>
+            <li><a class="dropdown-item" href="/admin/course_page"><i class="bi bi-arrow-right fs-5"></i>Course Category</a></li>
+          </li>
+          <li>
+            <li><a class="dropdown-item" href="/admin/course"><i class="bi bi-clock-fill fs-5"></i>Course Time table</a></li>
+          </li>
+
+          <li>
+            <li><a class="dropdown-item" href="/admin/level_category"><i class="bi bi-bar-chart-line-fill fs-5"></i>Level Category</a></li>
+          </li>
+
+          <li>
+            <li><a class="dropdown-item" href="/admin/level"><i class="bi bi-arrow-up-square-fill fs-5"></i>Level</a></li>
+          </li>
+          
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#gallery_slider" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-image-fill"></i><span>Gallery</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="gallery_slider" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/admin/gallery_slider">
+              <i class="bi bi-image-fill fs-5"></i><span>Add Gallery Slider</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/gallry_categary">
+              <i class="bi bi-brilliance fs-5"></i><span>Categary</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/gallry">
+              <i class="bi bi-image fs-5"></i><span>Gallery</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#result" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-trophy-fill fs-5"></i><span>Result</span><i class="bi bi-chevron-down ms-auto fs-6"></i>
+        </a>
+        <ul id="result" class="nav-content collapse " data-bs-parent="#homepage">
+          <li>
+            <li><a class="dropdown-item" href="/admin/result_categary"><i class="bi bi-hourglass-top fs-5"></i>categary</a></li>
+          </li>
+          <li>
+            <li><a class="dropdown-item" href="/admin/result"><i class="bi bi-person-arms-up fs-5"></i>result</a></li>
+          </li>
+          <li>
+            <li><a class="dropdown-item" href="/admin/rankes"><i class="bi bi-person-raised-hand fs-5"></i>Student Achievements</a></li>
+          </li>
+          <li>
+            
+            <li><a class="dropdown-item" href="/admin/subject_topper"><i class="bi bi-trophy-fill fs-5"></i>subject topper</a></li>
+          </li>
+         
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#blog" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem fs-6"></i><span>Blog</span><i class="bi bi-chevron-down ms-auto fs-6"></i>
+        </a>
+        <ul id="blog" class="nav-content collapse " data-bs-parent="#homepage">
+          <li>
+            <li><a class="dropdown-item" href="/admin/blog"><i class="bi bi-award-fill fs-5"></i>Recent Posts</a></li>
+          </li>
+
+          <li>
+            <li><a class="dropdown-item" href="/admin/latest_blog"><i class="bi bi-award fs-5"></i>Latest Blog</a></li>
+          </li>
+          <li>
+            <li><a class="dropdown-item" href="/admin/research_blog"><i class="bi bi-stickies-fill fs-5"></i>RESEARCH ON ABACUS</a></li>
+          </li>
+         
+          <!-- RESEARCH ON ABACUS -->
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#contact" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person-circle fs-5"></i><span>Contact Page</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="contact" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/admin/add_contact">
+              <i class="bi bi-person-bounding-box fs-5"></i>
+              <span>Add Contact</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/admin/contact">
+              <i class="bi bi-person-vcard fs-5"></i>
+              <span>Contact List</span>
+            </a>
+            
+          </li>
+          
+        </ul>
+      </li>
+
+    </ul>
+
+
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+
+      <li class="nav-item">
+        <a class="nav-link " href="/admin/company_information">
+          <i class="bi bi-sliders"></i>
+          <span>Company Information</span>
+        </a>
+      </li>
+
+    </ul>
+   
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+    
+   
+
+  

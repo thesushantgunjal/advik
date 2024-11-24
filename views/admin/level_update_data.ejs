@@ -1,0 +1,40 @@
+<%-include("navbar.ejs")%>
+
+<form action="/admin/level_update" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Level Form Update</h3>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+          
+            
+            <!-- Input for new category name -->
+             <input type="hidden" name="level_id" value="<%-level_update_data.level_id%>">
+            
+            
+            <div class="col-md-12 mb-3">
+                <label for="age">age</label>
+                <input type="text" value="<%-level_update_data.age%>"  name="age" id="subject" class="form-control" required>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="level_information">information</label>
+                <textarea name="level_information" id="aboutText1" class="form-control" rows="4" ><%-level_update_data.level_information%></textarea>
+            </div>
+          
+            
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%-include("footer.ejs")%>

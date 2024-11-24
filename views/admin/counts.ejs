@@ -1,0 +1,51 @@
+<%-include("navbar.ejs") %>
+<form action="/admin/save_counts" method="post" class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+        <input type="hidden" name="count_id" value="<%-counts.count_id %>">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Save Counts</h3>
+            </div>
+        </div>
+
+        <!-- Total Students -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="total_student">Total Students</label>
+                <input type="number" name="total_student" id="total_student" class="form-control" value="<%-counts.total_student %>">
+            </div>
+        </div>
+
+        <!-- Teachers -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="teacher">Total Teachers</label>
+                <input type="number" name="teacher" id="teacher" class="form-control" value="<%-counts.teacher %>">
+            </div>
+        </div>
+
+        <!-- Current Students -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="Student">Current Students</label>
+                <input type="number" name="Student" id="Student" class="form-control" value="<%-counts.Student %>">
+            </div>
+        </div>
+
+        <!-- Happy Students -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="happy_students">Happy Students</label>
+                <input type="number" name="happy_students" id="happy_students" class="form-control" value="<%-counts.happy_students %>">
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Save Counts</button>
+        </div>
+    </div>
+</form>
+
+<%-include("footer.ejs") %>

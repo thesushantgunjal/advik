@@ -1,0 +1,148 @@
+<%- include("navbar.ejs") %>
+
+<section class="blog_bread" style="background-image: url('https://t4.ftcdn.net/jpg/06/64/95/89/360_F_664958988_9aIIr8OLl4Aqef9lUeiNxTsxHAYSChal.jpg');">
+  <div class="container py-5 topbar">
+      <div class="row py-5" data-aos="fade-up" data-aos-duration="1000">
+          <h1 class="text-white text-center">Contact</h1>
+          <nav class="breadnav" aria-label="breadcrumb">
+              <ol class="breadcrumb  justify-content-center">
+                  <li class="breadcrumb-item fs-5">
+                      <a class="text-decoration-none text-white" href="/">Home</a>
+                  </li>
+                  <li class="breadcrumb-item fs-5 active text-info" aria-current="page">
+                      Contact
+                  </li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</section>
+
+
+
+<!-- Part1 -->
+<div class="container py-3 bg-light border border-2 mt-5">
+  <div class="row">
+  <!-- contact_Form -->
+  <div class="col-md-7 border-end border-2 bg-light">
+  <h1 class="mt-3 ms-5 text-primary">Contact Info</h1>
+  <div class="row"> 
+  <div class="col-md-12">
+    <!-- step1 -->
+    <div class="row">
+      <div class="col-md-6 mt-5">
+        <div class="row"> 
+        <div class="col-3 text-end">
+          <i class="fa-solid fa-envelope fs-3 text-primary mt-4"></i>
+        </div>
+        <div class="col-9">
+          <h5 class="fs-4">Our Email</h5>
+          <p class="fs-6"><%-contacts.contact_email%></p>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-6 mt-5">
+        <div class="row"> 
+          <div class="col-3 text-end">
+            <i class="fa-solid fa-clock fs-3 text-primary mt-4"></i>
+          </div>
+          <div class="col-9">
+            <h5 class="fs-4">Hours</h5>
+            <p class="fs-6"><%-contacts.contact_hours%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- step2 -->
+    <div class="row">
+      <div class="col-md-6 mt-5">
+        <div class="row mt-1"> 
+        <div class="col-3 text-end">
+          <i class="fa-solid fa-phone fs-3 text-primary mt-4"></i>
+        </div>
+        <div class="col-9">
+          <h5 class="fs-4">Call Us</h5>
+          <p class="fs-6">+91<%-contacts.contact_mobile_1%></p>
+          <p class="fs-6">+91<%-contacts.contact_mobile_2%></p>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-6 mt-5">
+        <div class="row mt-1"> 
+          <div class="col-3 text-end">
+            <i class="fa-solid fa-location-dot fs-3 text-primary mt-4"></i>
+          </div>
+          <div class="col-9">
+            <h5 class="fs-4">Our Location</h5>
+            <p class="fs-6"><%-contacts.contact_location%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- follow_icon -->
+    <div class="col-md-6 ms-5 mb-5">
+      <h4 class="mb-4">Follow Us</h4>
+                      <a href="<%-company_informations.company_info_facebook_link%>"><i class="fa-brands fa-facebook fs-4 px-2 text-primary"></i></a>
+                      <a href="<%-company_informations.company_info_instagram_link%>"><i class="fa-brands fa-instagram fs-4 px-2 text-danger"></i></a>
+                      <a href="<%-company_informations.company_info_twitter_link%>"><i class="fa-brands fa-whatsapp fs-4 px-2 text-success"></i></a>       
+                      <a href="<%-company_informations.company_info_youtube_link%>"><i class="fa-brands fa-youtube fs-4 px-2 text-danger"></i></a>
+               
+  </div>
+  </div>
+  </div>
+  </div>
+  
+
+<!-- Part2 -->
+<div class="col-md-5 "> 
+<h1 class="fs-3 ms-3 mb-2 mt-3">Send Us A Message</h1>
+<div class="ms-3 me-3">
+<form action="/contact_form" method="post">
+
+<div class="form-floating mt-4 mb-3">
+<input type="text" name="student_name" class="form-control" id="floatingInput" placeholder="name@example.com" required >
+<label for="floatingInput">Name</label>
+</div>
+<div class="form-floating  mb-3">
+<input type="email" name="student_email" class="form-control" id="floatingPassword" placeholder="Password" required>
+<label for="floatingPassword">Email Address</label>
+</div>
+<!-- Email Address -->
+<div class="form-floating  mb-3">
+<input type="number" name="student_number" class="form-control" id="floatingPassword" placeholder="Password" required>
+<label for="floatingPassword">Phone Number</label>
+</div>
+
+<!-- Phone Number -->
+<div class="form-floating  mb-3">
+<input type="text" name="student_subject" class="form-control" id="floatingPassword" placeholder="Password" required>
+<label for="floatingPassword">Subject</label>
+</div>
+
+<!-- Message -->
+<div class="form-floating">
+<textarea class="form-control" name="student_message" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
+<label for="floatingTextarea2">Message</label>
+</div><br>
+
+<!-- Submit Button -->
+<button type="submit" class="btn btn-primary w-100">Submit</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- location start -->
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+  <div class="mt-5">
+    <iframe src="<%-contacts.contact_maps_link%>" style="height: 400px; width: 100%;"></iframe>
+  </div>
+</div>
+</div>
+</div>
+
+
+<%- include("footer.ejs") %>

@@ -1,0 +1,66 @@
+<%-include("navbar.ejs")%>
+
+<form action="/admin/latest_update_blog" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Latest Blog Update</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+           
+            
+            <!-- Input for new category name -->
+            <div class="col-md-6 mb-3">
+                <label for="category_name">latest blog img</label>
+                
+               <input type="hidden" name="latest_update_data" value="<%-old_data.latest_blog_id%>">
+                <input type="file" name="latest_blog_img" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+               
+                
+               <img src="/uploads/<%-old_data.latest_blog_img%>" alt="" width="100px" height="100px">
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Post Date</label>
+                
+               
+                <input type="date" value="<%-old_data.latest_blog_date%>" name="latest_blog_date" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="category_name">Post By</label>
+                
+               
+                <input type="text" value="<%-old_data.latest_blog_post_by%>" name="latest_blog_post_by" class="form-control">
+            </div>
+            
+            <div class="col-md-12 mb-3">
+                <label for="category_name">Content</label>
+                
+               
+                <input type="text" value="<%-old_data.latest_blog_content%>"  name="latest_blog_content" class="form-control">
+            </div>
+           
+            <div class="col-md-12 mb-3">
+                <label for="category_name">Short Description</label>
+                
+               
+                <textarea name="blog_short_description" id="aboutText1" class="form-control" rows="2" placeholder="Enter first section of about text"><%-old_data.blog_short_description%></textarea>
+
+            </div>
+           
+           
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+<%-include("footer.ejs")%>

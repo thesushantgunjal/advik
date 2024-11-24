@@ -1,0 +1,95 @@
+<%-include("navbar.ejs") %>
+<section class="blog_bread" style="background-image: url('https://www.shutterstock.com/image-photo/woman-teacher-elementary-age-kids-260nw-1009737007.jpg')">
+  <div class="container py-5 topbar">
+      <div class="row py-5" data-aos="fade-up" data-aos-duration="1000">
+          <h1 class="text-white text-center">Gallery</h1>
+          <nav class="breadnav" aria-label="breadcrumb">
+              <ol class="breadcrumb  justify-content-center">
+                  <li class="breadcrumb-item fs-5">
+                      <a class="text-decoration-none text-white" href="/">Home</a>
+                  </li>
+                  <li class="breadcrumb-item fs-5 active text-info" aria-current="page">
+                    Gallery
+                  </li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</section>
+  <!-- Gallery Section start-->
+  <section id="Galley">
+    <div class="container">
+
+        <!-- link -->
+        <div class="items-links">
+            <span class="item-link menu-active" data-name="All">All</span>
+            <% for (i of old_data) { %>
+                <span class="item-link" data-name="class-img<%- i.category_id %>"><%- i.category_name %></span>
+            <% } %>
+            
+        </div>
+
+        <!-- Filter Img -->
+        <div class="gellery"> 
+
+            <!-- Gallery Images Start-->
+            <% for (i of gallry_old_data) { %> 
+            
+                <div class="gellery-img" data-name="class-img<%- i.category_id %>">
+                    <% if (i.category_id == 9
+                    ) { %> <!-- If the category is "Video" -->
+                    <iframe width="350" height="240" src="<%- i.gallery_video %>" 
+                      title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      allowfullscreen>
+                    </iframe>
+                    
+                    <% } else { %> <!-- Otherwise, it's a regular image -->
+                        <img src="/uploads/<%- i.gallery_img %>" alt="" style=" width: 100%; height:auto; object-fit: cover;">
+                    <% } %>
+                    <div class="overlay">
+                        <h2><%- i.gallery_text %></h2>
+                        <p><%- i.gallery_text2 %></p>
+                    </div>
+                </div>
+            
+            <% } %>
+
+        </div>
+    </div>
+</section>
+
+<script >
+  let filterItem = document.querySelector('.items-links');
+let fileteImages = document.querySelectorAll('.gellery-img');
+
+
+
+
+
+
+window.addEventListener('load', () => {
+filterItem.addEventListener('click', (selectedItem) => {
+if (selectedItem.target.classList.contains('item-link')) {
+ document.querySelector('.menu-active').classList.remove('menu-active');
+ selectedItem.target.classList.add('menu-active');
+ let filterName = selectedItem.target.getAttribute('data-name');
+ fileteImages.forEach((image) => {
+  let fileteImages = image.getAttribute('data-name');
+
+  if ((fileteImages == filterName) || filterName == 'All') {
+   image.style.display = 'block';
+  }
+  else {
+   image.style.display = 'none';
+  }
+ })
+}
+})
+})
+
+</script>
+
+  
+  <!-- Gallery Section end-->
+
+<%-include("footer.ejs") %>

@@ -1,0 +1,71 @@
+<%-include("navbar.ejs") %>
+<form action="/admin/update_slider" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3">
+        <input type="hidden" name="slider_id" value="<%-old_data.id%>">
+
+        <div class="row">
+            <div class="col-12">
+                <h3 class="heading">Edit Slider</h3>
+            </div>
+            
+            <!-- Slider Heading -->
+
+            <div class="col-md-6 mb-3">
+                <label for="slider_heading">Slider Heading</label>
+                <input type="text" name="slider_heading" value="<%-old_data.slider_heading%>" id="slider_heading" class="form-control" required>
+            </div>
+
+            <!-- Button Text -->
+            <div class="col-md-6 mb-3">
+                <label for="button_text">Button Text</label>
+                <input type="text" name="button_text" value="<%-old_data.button_text%>" id="button_text" class="form-control" required>
+            </div>
+            <!-- Slider Heading Img Text -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_heading_text">Slider Heading Img Text</label>
+                <input type="text" name="slider_heading_text" id="slider_heading_text" class="form-control" value="<%-old_data.slider_heading_text%>">
+            </div>
+            <!-- Slider Text -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_text">Slider Text</label>
+                <textarea name="slider_text" id="slider_text" class="form-control" rows="1" required><%-old_data.slider_text%></textarea>
+            </div>
+
+
+            <!-- Slider Image 1 -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_image_1">Slider Image 1</label>
+                <input type="file"  name="slider_image_1" id="slider_image_1" class="form-control">
+            </div>
+            <div class="col-md-6 ml-5">
+                <img src="/uploads/<%-old_data.slider_image_1%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+            <!-- Slider Image 2 -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_image_2">Slider Image 2</label>
+                <input type="file" name="slider_image_2" id="slider_image_2" class="form-control">
+            </div>
+            <div class="col-md-6 ml-5">
+                <img src="/uploads/<%-old_data.slider_image_2%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+
+            <!-- Slider Image 3 -->
+            <div class="col-md-6 mb-3">
+                <label for="slider_image_3">Slider Image 3</label>
+                <input type="file" name="slider_image_3" id="slider_image_3" class="form-control">
+            </div>
+            <div class="col-md-6 ml-5">
+                <img src="/uploads/<%-old_data.slider_image_3%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+            
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Update Slider</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%-include("footer.ejs") %>

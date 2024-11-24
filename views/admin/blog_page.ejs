@@ -1,0 +1,98 @@
+<%-include("navbar.ejs")%>
+
+<form action="/admin/recent_post_blog" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Recent Posts</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+           
+            
+            <!-- Input for new category name -->
+            <div class="col-md-6 mb-3">
+                <label for="category_name">blog img</label>
+               
+                <input type="file" id="gallery_img" name="blog_img" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="category_name">blog titale</label>
+               
+                <input type="text" id="gallery_img" name="blog_titale" class="form-control">
+                </div>
+            </div>
+           
+           
+           
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid mt-5 mb-5 bg-white p-3">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Recent Posts List</h3>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered border-info">
+                        <tr>
+                            <th>Action</th>
+                            <th>SN</th>
+                            <th>blog image</th>
+                            <th>blog titale</th>
+                            
+                            
+                        </tr>
+
+                        <% sr=1; for(i of blog_data){%> 
+                        <tr>
+                            <td style="white-space: nowrap;">
+                                <a href="/admin/update_blog_edit/<%-i.recent_post_blog_id%>">
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/blog_delete/<%-i.recent_post_blog_id%>" onclick="return confirmDelete()" >
+                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                            </a>
+                            </td>
+                            <td><%-sr++%></td>
+                            <td><img src="/uploads/<%-i.blog_img%>"
+                                alt="" width="100px" height="ms-auto"  > </td>
+                            <td><%-i.blog_title%></td>
+                           
+                        </tr>
+                        <% } %>
+                       
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this item?');
+    }
+</script>
+<!--
+CREATE TABLE recent_post_blog (
+    recent_post_blog_id INT AUTO_INCREMENT PRIMARY KEY,
+    gallery_img VARCHAR(255) NOT NULL,        
+    blog_title VARCHAR(255) NOT NULL           
+);
+
+-->
+
+<%-include("footer.ejs")%>

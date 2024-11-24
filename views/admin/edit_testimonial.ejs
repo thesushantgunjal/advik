@@ -1,0 +1,37 @@
+<%- include("navbar.ejs") %>
+<form action="/admin/update_testimonial" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="heading">Edit Testimonials</h3>
+            </div>
+            <!-- Testimonial Photo -->
+            <div class="col-md-6 mb-3">
+                <input type="hidden" name="testimonial_id" value="<%-testimonials.testimonial_id%>">
+                <label for="testimonial_photo">Testimonial Photo</label>
+                <input type="file"  name="testimonial_photo" id="testimonial_photo" class="form-control">
+            </div>
+
+            <!-- Testimonials Text -->
+            <div class="col-md-6 mb-3">
+                <label for="testimonial_name">Testimonial Name</label>
+                <input type="text" name="testimonial_name" value="" id="testimonial_name" class="form-control" required>
+            </div>
+
+            <!-- Slider Text -->
+            <div class="col-md-12 mb-3">
+                <label for="testimonial_text">Testimonial Text</label>
+                <textarea name="testimonial_text" id="testimonial_text" class="form-control" rows="2" required></textarea>
+            </div>
+
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Update Testimonial</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include("footer.ejs") %>

@@ -1,0 +1,52 @@
+<%-include("navbar.ejs")%>
+
+
+<form action="/admin/galler_update_page" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Gallery Form</h3>
+            </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+           
+            
+            <!-- Input for new category name -->
+            <div class="col-md-6 mb-3">
+                <label for="category_name">gallry img</label>
+                <input type="hidden" name="gallery_update_id" value="<%-old_data.gallery_id%>">
+                <input type="file" id="gallery_img" name="gallery_img_2" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <img src="/uploads/<%-old_data.gallery_img%>" alt="" width="100px" height="ms-auto">
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="category_name">gallry video</label>
+                <input type="url" id="category_name" name="gallry_video" value="<%-old_data.gallery_video%>" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="category_name">gallry text</label>
+                <input type="text" id="category_name" name="gallry_text" value="<%-old_data.gallery_text%>" class="form-control">
+            </div>
+            <div class="col-md-12 mb-3">
+                
+                    <label for="aboutText1">gallry text2</label>
+                    
+                    <textarea name="aboutText2" id="aboutText1" class="form-control" rows="2" 
+                    placeholder="Enter first section of about text"><%-old_data.gallery_text2%></textarea>
+                 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%-include("footer.ejs")%>

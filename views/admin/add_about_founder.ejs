@@ -1,0 +1,59 @@
+<%-include("navbar.ejs")%>
+<form action="/admin/save_founder" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg p-3 mb-5 bg-body rounded">
+        <input type="hidden" name="founder_id" value="<%-founders.founder_id%>" >
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Founder Information</h3>
+            </div>
+        </div>
+        
+        <!-- Founder Information -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="founder_information">Founder Information</label>
+                <textarea name="founder_information" id="founder_information" class="form-control" rows="2"><%-founders.founder_information%></textarea>
+            </div>
+        </div>
+        
+        <!-- Founder Email -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="founder_email">Founder Email</label>
+                <input type="email" name="founder_email" id="founder_email" class="form-control" value="<%-founders.founder_email%>">
+            </div>
+        </div>
+
+        <!-- Founder Mobile -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="founder_mobile">Founder Mobile</label>
+                <input type="tel" name="founder_mobile" id="founder_mobile" class="form-control" value="<%-founders.founder_mobile%>">
+            </div>
+        </div>
+
+        <!-- Founder Photo -->
+        <div class="row mb-3">
+            <div class="col-md-6 mt-4">
+                <label for="founder_photo">Founder Photo</label>
+                <input type="file" name="founder_photo" id="founder_photo" class="form-control" accept="image/*" >
+            </div>
+            <div class="col-md-6 ml-5">
+                <img src="/uploads/<%-founders.founder_photo%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
+
+<%-include("footer.ejs")%>
+<!-- founder ->
+        founder_information
+        founder_email
+        founder_mobile
+        founder_photo -->

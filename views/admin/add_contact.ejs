@@ -1,0 +1,61 @@
+<%-include("navbar.ejs") %>
+<form action="/admin/save_contact" method="post" enctype="multipart/form-data" class="w-100">
+    <input type="hidden" name="contact_id" value="<%-contacts.contact_id%>">
+
+<div class="container-fluid bg-white p-3">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Contact Information</h3>
+            </div>
+
+            <!-- Contact Email -->
+            <div class="col-md-6 mt-4">
+                <label for="contact_email">Email</label>
+                <input type="email" name="contact_email" id="contact_email" class="form-control" value="<%-contacts.contact_email%>" required>
+            </div>
+
+            <!-- Contact Hours -->
+            <div class="col-md-6 mt-4">
+                <label for="contact_hours">Contact Hours</label>
+                <input type="text" name="contact_hours" id="contact_hours" class="form-control" value="<%-contacts.contact_hours%>">
+            </div>
+
+            <!-- Contact Mobile 1 -->
+            <div class="col-md-6 mt-4">
+                <label for="contact_mobile_1">Mobile Number 1</label>
+                <input type="tel" name="contact_mobile_1" id="contact_mobile_1" class="form-control" value="<%-contacts.contact_mobile_1%>" required>
+            </div>
+
+            <!-- Contact Mobile 2 -->
+            <div class="col-md-6 mt-4">
+                <label for="contact_mobile_2">Mobile Number 2</label>
+                <input type="tel" name="contact_mobile_2" id="contact_mobile_2" class="form-control" value="<%-contacts.contact_mobile_2%>">
+            </div>
+
+            <!-- Contact WhatsApp Link -->
+            <div class="col-md-6 mt-4">
+                <label for="contact_whatsapp_link">WhatsApp Link</label>
+                <input type="url" name="contact_whatsapp_link" id="contact_whatsapp_link" class="form-control" value="<%-contacts.contact_whatsapp_link%>">
+            </div>
+
+            <!-- Contact Maps Link -->
+            <div class="col-md-6 mt-4">
+                <label for="contact_maps_link">Maps Link</label>
+                <input type="url" name="contact_maps_link" id="contact_maps_link" class="form-control" value="<%-contacts.contact_maps_link%>">
+            </div>
+
+            <!-- Contact Location -->
+            <div class="col-md-12 mt-4">
+                <label for="contact_location">Location</label>
+                <textarea type="text" name="contact_location" id="contact_location" class="form-control"><%-contacts.contact_location%></textarea>
+            </div>
+            <!-- Submit Button -->
+            <div class="col-md-12 mt-4 text-center">
+                <button type="submit" class="btn btn-primary">Save Contact</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%-include("footer.ejs") %>

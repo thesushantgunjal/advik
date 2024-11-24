@@ -1,0 +1,31 @@
+<%-include("navbar.ejs") %>
+<form action="/admin/update_faq" method="post" enctype="multipart/form-data" class="w-100">
+    <input type="hidden" name="faq_id" value="<%-faqs.faq_id%>">
+    <div class="container-fluid bg-white p-3">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="heading">Edit FAQ</h3>
+            </div>
+            <!-- Questions Text -->
+            <div class="col-md-12 mb-3">
+                <label for="faq_question_text">Questions Text</label>
+                <textarea name="faq_question_text" id="faq_question_text" class="form-control" rows="4" required><%-faqs.faq_question_text%></textarea>
+            </div>
+
+             <!-- Answer Text-->
+             <div class="col-md-12 mb-3">
+                <label for="faq_answer_text">Answer Text</label>
+                <textarea name="faq_answer_text" id="faq_answer_text" class="form-control" rows="4" required><%-faqs.faq_answer_text%></textarea>
+            </div>
+            
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary">Update FAQ</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%-include("footer.ejs") %>

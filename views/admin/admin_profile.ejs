@@ -1,0 +1,44 @@
+admin profile <%-include("navbar.ejs")%>
+
+<form action="/admin/admin_update_data" method="post" >
+    <div class="container-fluid bg-white p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Admin Profile</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Dropdown selection for category -->
+           
+            
+            <!-- Input for new category name -->
+          
+           <!--{"name":"kiran tup","email":"kirantupe1112@gmail","password":"956"}-->
+          
+            <div class="col-md-6 mb-3">
+                <label for="name">Name</label>
+                <input type="hidden" name="admin_id" value="<%-old_data.users_id%>">
+                <input type="text" value="<%-old_data.username%>"  name="name"  class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="email">Email</label>
+                <input type="email" value="<%-old_data.email%>"  name="email"  class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="password">Password</label>
+                <input type="text" value="<%-old_data.password%>"  name="password"  class="form-control">
+            </div>
+            
+           
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%-include("footer.ejs")%>

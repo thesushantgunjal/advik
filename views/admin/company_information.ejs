@@ -1,0 +1,87 @@
+<%- include("navbar.ejs")%>
+<form action="/admin/save_company_informations" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3">
+        <!-- Hidden ID field -->
+        <input type="hidden" name="company_info_id" value="<%-company_informations.company_info_id%>">
+
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Company Information</h3>
+            </div>
+
+            <!-- Location -->
+            <div class="col-md-6 mt-4">
+                <label for="company_info_location">Location</label>
+                <input type="text" name="company_info_location" id="company_info_location" class="form-control" value="<%-company_informations.company_info_location%>">
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6 mt-4">
+                <label for="company_info_email">Email</label>
+                <input type="email" name="company_info_email" id="company_info_email" class="form-control" value="<%-company_informations.company_info_email%>">
+            </div>
+
+            <!-- Mobile -->
+            <div class="col-md-6 mt-4">
+                <label for="company_info_mobile">Mobile</label>
+                <input type="tel" name="company_info_mobile" id="company_info_mobile" class="form-control" value="<%-company_informations.company_info_mobile%>">
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="col-md-6 mt-4">
+                <label for="company_info_facebook_link">Facebook Link</label>
+                <input type="url" name="company_info_facebook_link" id="company_info_facebook_link" class="form-control" value="<%-company_informations.company_info_facebook_link%>">
+            </div>
+
+            <div class="col-md-6 mt-4">
+                <label for="company_info_instagram_link">Instagram Link</label>
+                <input type="url" name="company_info_instagram_link" id="company_info_instagram_link" class="form-control" value="<%-company_informations.company_info_instagram_link%>">
+            </div>
+
+            <div class="col-md-6 mt-4">
+                <label for="company_info_twitter_link">whatsapp Link</label>
+                <input type="url" name="company_info_twitter_link" id="company_info_twitter_link" class="form-control" value="<%-company_informations.company_info_twitter_link%>">
+            </div>
+
+            <div class="col-md-6 mt-4">
+                <label for="company_info_youtube_link">YouTube Link</label>
+                <input type="url" name="company_info_youtube_link" id="company_info_youtube_link" class="form-control" value="<%-company_informations.company_info_youtube_link%>">
+            </div>
+
+            <!-- Company Info Text -->
+            <div class="col-md-6 mt-4">
+                <label for="company_info_text">Company Info Text</label>
+                <textarea name="company_info_text" id="company_info_text" class="form-control" rows="1"><%-company_informations.company_info_text%></textarea>
+            </div>
+            
+            <!-- Navbar Logo -->
+            <div class="col-md-6 mt-4">
+                <label for="company_info_navbar_logo">Navbar Logo</label>
+                <input type="file" name="company_info_navbar_logo" id="company_info_navbar_logo" class="form-control">
+            </div>
+            <div class="col-md-6 mt-4">
+                <label>Navbar Logo</label>
+                <img src="/uploads/<%-company_informations.company_info_navbar_logo%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+
+            <!-- Footer Logo -->
+            <div class="col-md-6 mt-4">
+                <label for="company_info_footer_logo">Footer Logo</label>
+                <input type="file" name="company_info_footer_logo" id="company_info_footer_logo" class="form-control">
+            </div>
+            <div class="col-md-6 mt-4">
+                <label>Footer Logo</label>
+                <img src="/uploads/<%-company_informations.company_info_footer_logo%>" width="100px" height="100px" class="rounded shadow" alt="Current Image">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-md-12 mt-4">
+                <button type="submit" class="btn btn-primary">Save Information</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+ <%- include("footer.ejs")%>
+

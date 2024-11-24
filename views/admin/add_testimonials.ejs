@@ -1,0 +1,71 @@
+<%- include("navbar.ejs") %>
+<form action="/admin/save_Testimonials" method="post" enctype="multipart/form-data" class="w-100">
+    <div class="container-fluid bg-white p-3 shadow-lg mb-5 bg-body rounded">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Testimonials</h3>
+            </div>
+        </div>
+
+        <!-- Testimonials Photo -->
+        <div class="col-md-12 mb-3">
+            <label for="testimonial_photo" class="form-label">Testimonial Photo</label>
+            <input type="file" name="testimonial_photo" id="testimonial_photo" class="form-control" required>
+        </div>
+
+        <!-- Testimonials Text -->
+        <div class="col-md-12 mb-3">
+            <label for="testimonial_text" class="form-label">Testimonial Text</label>
+            <textarea name="testimonial_text" id="testimonial_text" rows="2" class="form-control" placeholder="Enter testimonial text here" required></textarea>
+        </div>
+
+        <!-- Testimonials Name -->
+        <div class="col-md-12 mb-3">
+            <label for="testimonial_name" class="form-label">Testimonial Name</label>
+            <input type="text" name="testimonial_name" id="testimonial_name" class="form-control" placeholder="Enter name" required>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-md-12 mt-4 text-center">
+            <button type="submit" class="btn btn-primary">Submit Testimonial</button>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid mt-5 mb-5 bg-white p-3">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h3 class="heading">Testimonial List</h3>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered border-info">
+                    <tr>
+                        <th>Action</th>
+                        <th>SN</th>
+                        <th>Testimonial Photo</th>
+                        <th>Testimonial Text</th>
+                        <th>Testimonial name</th>
+                    </tr>
+                    <% sr=1; for(i of testimonials){ %>
+                    <tr>
+                        <td style="font-size: 20px;">
+                            <a href="/admin/edit_testimonial/<%=i.testimonial_id%>" class="bi bi-pencil-square text-success"></a>
+                            <a href="/admin/delete_testimonial/<%=i.testimonial_id%>" class="bi bi-trash3-fill text-danger"></a>
+                        </td>
+                        <td><%=sr++%></td>
+                        <td><img src="/uploads/<%=i.testimonial_photo %>" width="100px"></td>
+                        <td><%=i.testimonial_text %></td>
+                        <td><%=i.testimonial_name %></td>
+                            
+                    </tr>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%-include("footer.ejs")%>

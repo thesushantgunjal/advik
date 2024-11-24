@@ -1,0 +1,160 @@
+<%- include("navbar.ejs") %>
+<main>
+  <section class="slide-img" style="background-image: url('https:\\www.mastermindabacus.com/_next/static/media/2.9556dfce.jpg');">
+    <div class="container py-5 topbar banner">
+        <div class="row py-5 " data-aos="fade-up" data-aos-duration="1500">
+          <h1 class="banner-title">
+            <span>ADVIK</span>
+            <spa class="span-2">GENIUS</spa> MATHS
+          </h1>
+            <nav class="breadnav" aria-label="breadcrumb">
+                <ol class="breadcrumb  justify-content-center">
+                    <li class="breadcrumb-item fs-5">
+                        <a class="text-decoration-none text-white" href="/">Home</a>
+                    </li>
+                    <li class="breadcrumb-item fs-5 active text-primary" aria-current="page">
+                      Blog
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+  </section>
+    
+
+    <!-- post -->
+    <section class="Post" id="Post">
+      <div class="container">
+        <div class="title" data-aos="zoom-in" data-aos-duration="1500">
+          <h2>Recent Posts</h2>
+          <p>Post's</p>
+        </div>
+
+        <div class="Post-content">
+
+          <% for(i of blog_data){%> 
+
+          <div class="Post-item">
+            <div class="Post-img">
+              <img src="/uploads/<%-i.blog_img%>"
+                alt=""  style="height: 300px;"> 
+            </div>
+            <div class="Post-title">
+              <%-i.blog_title%>
+            </div>
+          </div>
+
+          <% } %>
+          
+
+          
+
+        </div>
+      </div>
+    </section>
+    <!-- end post -->
+
+
+    <!-- blog -->
+    <section class="blog" id="blog">
+      <div class="container">
+        <div class="title" data-aos="zoom-in" data-aos-duration="1500">
+          <h2>Latest Blog</h2>
+          <p>recent blogs about Classes</p>
+        </div>
+        <div class="blog-content">
+
+
+
+
+          
+
+           <% for(i of latest_blog_data){%> 
+          <div class="blog-item">
+            <div class="blog-img">
+              <img src="/uploads/<%-i.latest_blog_img%>"
+                alt="" height="200px">
+              
+            </div>
+            <div class="blog-text">
+              <div class="date-time">
+                <span class="fa-solid fa-calendar-days text-danger"></span>
+                <span class="fs-5"><td><%- new Date(i.latest_blog_date).toLocaleDateString('en-GB') %></td> <b style="margin-left: 20px;" class="fs-5">Post By:-</b> <%-i.latest_blog_post_by%></span>
+                
+                
+              </div>
+              <h2><%-i.latest_blog_content%></h2>
+              <p><%-i.blog_short_description%>
+              </p>
+              <input type="hidden">
+              <a href="javascript:void(0);" data-blog-id="<%= i.latest_blog_id %>" class="blog-link">
+                Read More about Blog
+              </a>
+
+
+            </div>
+          </div>
+          <!--
+          <span class="item-link" data-name="class-img<%-i.category_id%>"
+          -->
+          
+
+          
+
+          <% } %>
+
+ 
+
+        </div>
+      </div>
+    </section>
+    <!-- end blog -->
+
+     <% for(i of research_blog_data){%> 
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            
+            <section class="about" id="about">
+              <div class="container">
+                <div class="about-content">
+                  <div>
+                    <img src="/uploads/<%-i.research_blog_img%>" alt="" height="400px">
+                  </div>
+                  <div class="about-text">
+                    <div class="title" data-aos="flip-down" data-aos-duration="1000">
+                      <h2><%-i.research_blog_title%></h2>
+                      <p><%-i.research_blog_subtitle%></p>
+                    </div>
+                    <p><%-i.research_blog_content%></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    
+
+    <% } %>
+
+  </main>
+  <script>
+    document.querySelectorAll('.blog-link').forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        const blogId = link.getAttribute('data-blog-id'); // Get the hidden blog ID
+  
+        // Optionally, display the ID within the link text
+        link.textContent = `Read More about Blog ${blogId}`;
+  
+        // Open the URL based on the blog ID
+        const url = `/blog_user/${blogId}`;
+        window.location.href = url;
+      });
+    });
+  </script>
+  
+  
+  </main>
+  
+    <%- include("footer.ejs") %>

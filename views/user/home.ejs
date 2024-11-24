@@ -1,0 +1,381 @@
+<%- include("navbar.ejs") %>
+  <!-- Slider (Carousel) -->
+<div class="container-fluid background_main">
+    <div class="row">
+      <div class="col-md-12 Champions">
+        <div class="row"> 
+          <%for(i of sliders){ %>
+
+           <div class="col-md-6 Champions1">
+            <p class="text-center fs-4"><%=i.slider_heading %></p>
+            <h1 class="text-start ms-4 mt-4">Online & Offline <br>Advik  Maths  <br> Classes</h1>
+              <h6 class="mt-3 fs-4 mb-4"><%=i.slider_heading_text %></h6>
+             <span class="btnab"><a href="/contact"><button><%=i.button_text %></button></a></span>
+
+           </div>
+           <div class="col-md-6">
+            <div class="slider_bg">
+              <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-control-next">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/uploads/<%=i.slider_image_1 %>" alt="About Us" class="img-fluid rounded" class="d-block w-100 " alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/uploads/<%=i.slider_image_2 %>" alt="About Us" class="img-fluid rounded" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/uploads/<%=i.slider_image_3 %>" alt="About Us" class="img-fluid rounded" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev mt-5" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                </button>
+                <button class="carousel-control-next mt-5" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                </button>
+              </div>
+            </div>
+           </div>
+           <% } %>
+
+          </div>
+      </div>
+    </div>
+   </div>
+  <!-- Slider end (Carousel) -->
+
+    <!-- About Us Section -->
+  <div class="container-fluid About_Home_background">
+    <div class="row">
+      <div class="col-md-6 mt-5" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="ms-5 mt-2 text-shadow">About Us</h1>
+        <p class="ms-5"><%-old_data.aboutText1%>.<br><br>
+          <%-old_data.aboutText2%>.</p>
+          <!-- From Uiverse.io by AqFox   --><a href="/about"><button class="custom-btn btn-2 ms-5">Read More</button> </a>
+              
+         </div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000">
+        <img src="/uploads/<%-old_data.aboutImage%>" height="400" width="600" class="ms-3 mt-5 mb-4 rounded About_Home_img" alt="">
+      </div>
+    </div>
+  </div>
+    <!-- About Us Section end -->
+
+   
+     <!-- Courses -->
+     <section id="course">
+      <div class="contains-fuild mb-5">
+      <h2 class="text-center mt-5">Our Popular Courses</h2>
+      <div class="course-box">
+    
+       
+      <% for(i of popular_courses){ %>
+
+        <div class="courses" data-aos="flip-left" data-aos-duration="2000">
+          <img
+            src="/uploads/<%- i.popular_courses_photo %>"
+            alt="">
+          <div class="details mt-3">
+            <h5><%- i.popular_courses_text %></h5>
+            <p><%- i.popular_courses_information %></p>
+           
+          </div>
+          <div class="link">
+           <a href="/courses"> <button class="btn btn-primary">ENROLL NOW</button></a>
+          </div>
+        </div>
+        <% } %>
+    
+      
+    
+    
+    </div>
+     
+    </div>
+     </section>
+   <!-- Courses end -->
+   
+<!-- Why Choose Us -->
+<div class="container-fluid mt-5">
+  <div class="row">
+      <div class="col-md-12 text-center mt-5" data-aos="fade-up" data-aos-duration="1500">
+          <h1 class="Choose_h1">Why Choose Us</h1>
+      </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="ms-4 text-justify text-center"> 
+              <i class="fa-solid fa-brain mb-3 fs-1 text-primary"></i><h4 class="mb-4"><%- why_choose_us.knowledge_heading %></h4>
+          <p class="text-justify me-4"><%- why_choose_us.knowledge_information_text %>.</p>
+      </div>
+      </div>
+      <div class="col-md-4">
+          <div class="ms-4 text-justify text-center"> 
+          <i class="fa-solid fa-chalkboard mb-3 fs-1 text-primary"></i>
+          <h4 class="mb-4"><%- why_choose_us.experience_heading %></h4>
+          <p class="text-justify me-4"><%- why_choose_us.experience_information_text %>.</p>
+      </div>
+      </div>
+      <div class="col-md-4">
+          <div class="ms-4 text-justify text-center">
+          <i class="fa-solid fa-circle-info mb-3 fs-1 text-primary"></i>
+          <h4 class="mb-4"><%- why_choose_us.environment_heading %></h4>
+          <p class="text-justify me-4"><%- why_choose_us.environment_information_text %>.</p>
+      </div>
+      </div>
+  </div>
+</div>
+<!-- Why Choose Us end -->
+
+<!-- Counter -->
+<div class="counter text-center counter_background">
+        
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-12" data-aos="zoom-in" data-aos-duration="1500">
+              <div class="single-number">
+                  <div class="icon-area">
+                    <i class="fa fa-users"></i>
+                  </div>
+                  <span class="digit-box" data-val="<%-counts.total_student %>">000</span>
+                  <span class="text-box">Total Student</span>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12"data-aos="zoom-in" data-aos-duration="1500">
+              <div class="single-number">
+                  <div class="icon-area">
+                    <i class="fa fa-users"></i>
+                  </div>
+                  <span class="digit-box" data-val="<%-counts.teacher %>">000</span>
+                  <span class="text-box">Teacher</span>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12" data-aos="zoom-in" data-aos-duration="1500">
+              <div class="single-number">
+                  <div class="icon-area">
+                    <i class="fa fa-users"></i>
+                  </div>
+                  <span class="digit-box" data-val="<%-counts.Student %>">000</span>
+                  <span class="text-box">Student</span>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12" data-aos="zoom-in" data-aos-duration="1500">
+              <div class="single-number">
+                  <div class="icon-area">
+                      <i class="fa fa-users"></i>
+                  </div>
+                  <span class="digit-box" data-val="<%-counts.happy_students %>">000</span>
+                  <span class="text-box">Happy Students</span>
+              </div>
+          </div>
+      </div>
+  </div> 
+</div>
+<!-- Counter end-->
+
+  <!-- Our Toppers start -->
+  <div class="topper-content">
+    <section class="section-topper">
+      <div class="swiper mySwiper container mt-5">
+        <h2 class="text-center mt-1">Our Topper's</h2>
+        <div class="swiper-wrapper content">
+            <% for(i of toppers){ %>
+
+
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img src="/uploads/<%- i.topper_photo %>"
+                  alt="Profile Image 1" />
+              </div>
+              
+              <div class="name-profession">
+                <span class="name"><%- i.topper_name %></span>
+                <span class="profession"><%- i.topper_subject %></span>
+              </div>
+              
+              <div class="button">
+                <div class="aboutMe"><%- i.topper_percentage %> %</div>
+                <div class="hireMe"><%- i.topper_number %></div>
+              </div>
+              <a href="/result"><button class="btn btn-primary mt-4">Get started</button></a>
+            </div>
+          </div>
+
+        <% } %>
+
+        </div>
+      </div>
+
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </section>
+  </div>
+
+  <!-- Our Toppers end -->
+  <!-- Founders Teacher Section -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row"> 
+          <div class="col-md-7">
+            <div class="col-12">
+              <div class="ms-2 px-5 py-5"> 
+              <h1 class="About_Teacher">About Our Teacher</h1>
+              <p><%-founders.founder_information%></p>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="px-5 text-center"> 
+              <i class="fa-solid fa-envelope fs-2 mb-3"></i>
+              <h5 class="text-center">Email Service</h5>
+              <p class="text-center"><%-founders.founder_email%></p>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="px-5 text-center"> 
+              <i class="fa-solid fa-phone fs-3 mb-3"></i>
+              <h5 class="text-center">Phone Service</h5>
+              <p class="text-center"><%-founders.founder_mobile%></p>
+            </div>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-5 col-12">
+            <img class="my-5 Teacher_Img img-fluid" src="/uploads/<%-founders.founder_photo%>"  alt="">
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+   </section>
+  
+  <!-- Founders Section end-->
+  <!-- blog -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <div class="title">
+        <h2>Latest Blog</h2>
+      </div>
+      <div class="blog-content">
+         <% for(i of latest_blog_data){%> 
+        <div class="blog-item">
+          <div class="blog-img">
+            <img src="/uploads/<%-i.latest_blog_img%>"
+              alt="" height="200px">
+            
+          </div>
+          <div class="blog-text">
+            <div class="date-time">
+              <span class="fa-solid fa-calendar-days text-danger"></span>
+              <span class="fs-5"><td><%- new Date(i.latest_blog_date).toLocaleDateString('en-GB') %></td> <b style="margin-left: 20px;" class="fs-5">Post By:-</b> <%-i.latest_blog_post_by%></span>
+              
+            </div>
+            <h2><%-i.latest_blog_content%></h2>
+            <p><%-i.blog_short_description%>
+            </p>
+            <input type="hidden">
+            <a href="/blog" class="blog-link">
+              Read More Blog
+            </a>
+          </div>
+        </div>
+        <!--
+        <span class="item-link" data-name="class-img<%-i.category_id%>"
+        -->
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <div class="container text-center">
+      <h2 class="mb-5">Testimonials</h2>
+    
+      <!-- Carousel for Testimonials -->
+      <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <%for(i of testimonials){ %>
+  
+          <!-- Testimonial 1 -->
+          <div class="carousel-item active">
+            <div class="row justify-content-center">
+              <div class="col-md-8" data-aos="fade-up" data-aos-duration="1000">
+                <div class="testimonial-card">
+                  <img src="/uploads/<%=i.testimonial_photo %>" alt="Smiling young man with notebooks giving a thumbs up" class="student-img">
+                  <p class="lead"><%=i.testimonial_text %></p>
+                  <p class="student-name"><%=i.testimonial_name %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+  
+          
+        </div>
+  
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      let animated = false; // Flag to ensure animation runs only once
+      let targetElements = document.querySelectorAll(".digit-box");
+      let animationTiming = 3000;
+  
+      // Function to animate counters
+      function animateCounters() {
+          targetElements.forEach((targetElement) => {
+              let startValue = 0;
+              let endValue = parseInt(targetElement.getAttribute("data-val"));
+              let incrementTime = Math.floor(animationTiming / endValue);
+              let counter = setInterval(function () {
+                  startValue += 1;
+                  targetElement.textContent = startValue;
+                  if (startValue === endValue) {
+                      clearInterval(counter);
+                  }
+              }, incrementTime);
+          });
+      }
+  
+      // Function to check if counter section is in the viewport
+      function isInViewport() {
+          const counterSection = document.querySelector(".counter_background");
+          const sectionPosition = counterSection.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight;
+          
+          // When the top of the section is in the viewport
+          if (sectionPosition < screenPosition && !animated) {
+              animated = true; // Set flag to prevent re-running
+              animateCounters();
+          }
+      }
+  
+      // Listen for scroll event
+      window.addEventListener("scroll", isInViewport);
+  </script>
+<%- include("footer.ejs") %>
